@@ -27,6 +27,7 @@ Features optionnelles:
 
 
 Version 2: business ready "all you can eat"
+-------------------------------------------
 * plus grosse banque d'exos
 * gestion d'un login d'acces à la base ou non
 * sécurité pour protection des exos ?
@@ -34,5 +35,6 @@ Version 2: business ready "all you can eat"
  
 
 Version 3: business ready "pay as you go"
-* gestion des droits d'acces aux exos en fonction du login (backend)
-* gestion achat in-app
+-----------------------------------------
+- gestion des droits d'acces aux exos en fonction du login (backend)
+- gestion achat in-app
