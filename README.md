@@ -17,6 +17,7 @@ v1: tout open
 
 
 Features optionnelles:
+- [ ] créer un filtre par école et par difficulté, et par popularité et par date d'ajout en tete des pages d'exo
 - [ ] gestion des tags
 - [ ] gestion des profils utilisateurs 
 - [ ] sign-up et login -> open id ?
