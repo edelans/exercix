@@ -6,8 +6,14 @@ TO DO
 
 v1: tout open
 -------------
-- [ ] rajouter enoncés pour chapitres structure... et fonction de var réelle
+- [x] rajouter enoncés pour chapitres structure... et fonction de var réelle
 - [ ] ajouter des corrigés
+- fixer la suppression des '\\' dans les environnement \begin{cases} (géométrie). 
+\begin{cases} 
+\frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} = 1\\ 
+z=0
+\end{cases}
+
 - [ ] implémenter les POST vers la db:
   - [ ] stat viewcount
   - [ ] stat flag
