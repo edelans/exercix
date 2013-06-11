@@ -13,7 +13,7 @@ v1: tout open
 - [ ] implémenter les POST vers la db:
   - [ ] stat viewcount
   - [ ] stat flag
-  - [ ] request for correction: quand on clique dessus, faire apparaitre une fenetre qui demande l'adresse mail que l'on stocke ensuite dans la db dans le champ "requestcount" qui sera donc une liste d'adresse email ('[edelans@gmail.com, ...]) . -> Ca permet de prévenir les personnes quand on mettra la correction.
+  - [ ] request for correction: quand on clique dessus, faire apparaitre une fenetre qui demande l'adresse mail que l'on stocke ensuite dans la db dans le champ "requestcount" qui sera donc une liste d'adresse email: [edelans@gmail.com, ...]  -> Ca permet de prévenir les personnes quand on mettra la correction.
 - [ ] mailto flag@exercix.net
 - [ ] encapsulation Kanso puis Icenium
 
