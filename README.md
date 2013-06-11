@@ -6,10 +6,8 @@ TO DO
 
 v1: tout open
 -------------
-
 - [ ] rajouter enoncés pour chapitres structure... et fonction de var réelle
 - [ ] ajouter des corrigés
-
 - [ ] implémenter les POST vers la db:
   - [ ] stat viewcount
   - [ ] stat flag
