@@ -1,0 +1,355 @@
+/*ExerciX 0.3 CSS (using LESS), MIT Licensed, 2013*/
+
+/*///////////////////////////////////////////////  Fonts  //////////////////////////////////////////////*/
+
+@font-face {
+    font-family: 'LM';
+    src: url('fonts/lmroman10-regular-webfont.eot');
+    src: url('fonts/lmroman10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmroman10-regular-webfont.woff') format('woff'),
+         url('fonts/lmroman10-regular-webfont.ttf') format('truetype'),
+         url('fonts/lmroman10-regular-webfont.svg#lm_roman_10regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LMC';
+    src: url('fonts/lmromancaps10-regular-webfont.eot');
+    src: url('fonts/lmromancaps10-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmromancaps10-regular-webfont.woff') format('woff'),
+         url('fonts/lmromancaps10-regular-webfont.ttf') format('truetype'),
+         url('fonts/lmromancaps10-regular-webfont.svg#lm_roman_caps_10regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'LMI';
+    src: url('fonts/lmroman10-italic-webfont.eot');
+    src: url('fonts/lmroman10-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lmroman10-italic-webfont.woff') format('woff'),
+         url('fonts/lmroman10-italic-webfont.ttf') format('truetype'),
+         url('fonts/lmroman10-italic-webfont.svg#lm_roman_10italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+*{font-family : 'LM'; font-weight: normal; 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    // Border-box évite de compter le padding à l'extérieur.
+    }
+
+
+/*//////////////////////////////////////////////////  Colors /////////////////////////////////////////////////////////////*/
+
+@deep-purple : #96f;
+@green : #008554;
+@orange : #f14400;
+@blue : #009ef4;
+@blue2 : #1db1ff;
+
+
+/*//////////////////////////////////////////////////  Index  /////////////////////////////////////////////////////////////*/
+
+body{margin:0;}
+
+h1{font-size: 60px; text-align: center; font-weight: normal;}
+
+ h2{
+	 font-size: 40px;
+	  text-align: center; font-weight: normal;
+ }
+
+.title{
+		margin-bottom: 0;
+	}
+	.subtitle{
+		margin-top: 0;
+	}
+	
+
+.cat-title{
+	font-size: 40px;
+	text-align: center;
+	background: @orange;
+	color : white;
+	margin : 0;
+	padding: 7px 0;	
+}
+
+
+.cat-items-container{
+	padding: 30px 10%;
+}
+
+.cat-item{
+	max-width : 20%;
+	font-size: 20px;
+	margin: 5px;
+	padding: 5px;
+	border: lighten(@orange, 20%) 2px solid;
+	color: darken(@orange, 27%);
+	border-radius: 10px; 
+	text-align: center;
+	&:hover{
+		background: lighten(@orange, 47%);
+	}
+	
+}
+
+
+/*//////////////////////////////////////////////////  Search  /////////////////////////////////////////////////////////////*/
+
+
+input#search, .tt-hint{
+	width: 100% ;
+	padding: 10px 20px;
+	border: 0 none;
+	font-size: 30px;
+	-webkit-transition: all 0.5s;	
+    outline: 0 none;
+    color : rgba(0,0,0,0.4);
+	&:hover, &:focus{color : black;}
+}
+
+input#search:focus{
+	background: rgba(255,203,148,0.36) !important; //La transparence est là pour ne pas masquer la suggestion.
+}
+
+.twitter-typeahead{width: 100%;}
+
+.tt-dropdown-menu{
+	background: white;
+	width: 100%;
+	padding: 20px;
+	border-bottom: darken(@orange, 10%) 3px solid;
+	background: lighten(@orange,50%);
+}
+
+.search-cat{ //La catégorie dans la fenêtre des résultats
+	font-size: 30px;
+	color: @orange;
+}
+
+.tt-suggestion{ //La proposition (l'item)
+	padding-left : 20px;
+	p{
+		&:before{content :'•'}
+		margin : 0;
+	}
+}
+
+.tt-is-under-cursor{
+	color: darken(@orange, 10%);
+}
+
+/*//////////////////////////////////////////////////  Cat  /////////////////////////////////////////////////////////////*/
+
+.exos-container{
+	padding: 0 15%;
+
+	a{
+		text-decoration: none;
+		&:nth-child(4n) .exo-item{background: lighten(@orange, 10%);}
+		&:nth-child(4n + 1) .exo-item{background: darken(@orange, 10%);}
+		&:nth-child(4n + 2) .exo-item{background: lighten(@orange, 40%);color: darken(@orange, 20%); .exo-tag{border: 1px solid darken(@orange, 20%)};}
+		&:nth-child(4n + 3) .exo-item{background: darken(@orange, 25%);}
+		
+.exo-item{
+	max-width : 100%;
+	margin-bottom: 20px;
+
+	padding: 10px;
+	color: white;
+		text-decoration: none;
+	.exo-item-source{font-size: 20px;}
+	.exo-tags-container{margin-top: 10px;}
+	.exo-tag{font-size: 13px; display: inline-block; margin: 2px; padding : 2px 4px ;border: 1px solid white; line-height: 14px;}
+	}}
+	}
+	
+	
+.cat-nav, .refresh{
+	width: 20%;
+	margin: 20px;
+	padding: 10px;
+	text-decoration: none;
+	color: darken(@orange, 30%);
+	display: inline-block;
+	background: lighten(@orange,48%);
+	text-align: center;
+	&:hover{
+		background: lighten(@orange,43%);
+		}
+}	
+
+.cat-nav-container, .refresh-container{
+	text-align: center;
+}
+
+.missing{
+	text-align: center;
+	font-size: 17px;
+	
+}
+
+/*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
+
+.question-solution-container{
+	display: table;
+	font-size: 18px;
+
+}
+
+
+.question{
+width : 30%;
+display: table-cell; 
+background: lighten(@orange, 50%);
+padding: 20px;
+color: @orange;
+}
+
+.solution{
+width: 50%;
+display: table-cell;
+padding: 20px;
+color: darken(@orange, 32%);
+ a{
+	 text-decoration: none;
+	 color: inherit;
+ }
+ .mail .icon-info-sign {
+font-size: 25px;
+}
+}
+
+.orange-stripe{
+	background: @orange;
+	padding: 10px;
+	color: white;
+	text-align: center;
+}
+
+.tags-container{
+	display: inline-block;
+}
+	.tag{
+	font-size: 13px;
+	display: inline-block;
+	margin: 2px;
+	padding : 2px 4px ;
+	border: 1px solid white;
+	line-height: 14px;
+}
+	
+	
+	
+.single-exo-nav{
+	text-align: center;
+	a{
+	width: 20%;
+	margin: 20px;
+	padding: 10px;
+	text-decoration: none;
+	color: darken(@orange, 30%);
+	display: inline-block;
+	background: lighten(@orange,40%);
+	text-align: center;
+	&:hover{
+		background: lighten(@orange,30%);
+	}	
+}}
+
+.flag {
+color: darken(@orange,30%);
+text-decoration: none;
+}
+
+.show-solution, .mailto{
+width: 100%;
+text-align: center;
+display: block;
+div{
+	display: inline-block;
+	padding: 10px;
+	background: darken(@orange,10%);
+	color: white !important;
+	text-align: center;}
+}
+
+.mailto div{background: lighten(@orange,10%);}
+
+/*//////////////////////////////////////////////////  Mobile  /////////////////////////////////////////////////////////////*/
+
+@media (max-width : 600px){
+
+h1{font-size: 40px;}
+h2{font-size: 30px;}
+
+//Index
+.cat-item{
+max-width : 90%;}
+.cat-items-container {
+padding: 20px 10px;
+}
+
+//Search
+.tt-suggestion{
+	font-size: 20px;
+	background: lighten(@orange, 30%);
+	margin: 1px;
+	padding : 4px;
+	p:before{content :''}
+	
+}
+.search-cat{font-size: 20px;}
+
+//Chapter
+.exo-item{max-width : 100% !important;
+width: 100%;
+position: relative !important;
+top: 0 !important;
+margin-bottom: 5px !important;
+}
+.exos-container {
+padding: 0;
+height: auto !important;
+	a{
+width: 100%;
+display: inline;
+	}
+}
+
+// Single-exo
+.question-solution-container{
+	display: block;
+}
+.question, .solution{
+	display: block;
+	width: 100%;
+}
+
+
+.single-exo-nav a{
+	width: 50%;
+	margin: 0;
+	&:first-child{
+		border-right: 1px solid darken(@orange,30%);
+	}
+}
+
+.cat-nav, .refresh{
+	width: 100%;
+	margin: 0;
+	border-top: 1px solid darken(@orange, 30%);	
+}
+
+}

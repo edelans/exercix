@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ExerciX 0.4</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../../css/index.css" type="text/css">
+    <link rel="stylesheet" href="../../css/font-awesome.css" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+        <script type="text/javascript" src="../../js/jquery.js"></script>
+
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+    <script type="text/javascript" src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </head>
+	        <body>
+	        
+	        <h1 class="title">#{{number}}, {{school}} <a href="#" class="flag"><i class="icon-flag"></i></a></h1>
+
+	        <h2 class="subtitle">{{category}}, {{chapter}}</h2>
+	        
+	        <div class="orange-stripe">
+	        {{#difficulty}}<i class="icon-star"></i>{{/difficulty}}	
+	        {{uploaddate}}
+	        
+	        {{#taglist}}
+		        	<div class="tags-container">
+			        			        	<div class="tag">{{.}}</div>
+
+		        	</div>
+	        {{/taglist}}
+  		        </div>
+
+					        	   
+
+	        	<div class="question-solution-container">
+		        	<div class="question">
+		        	{{{question}}}
+		        	</div>
+		        	<div class="solution">
+		        	<h2>Correction <a class="mail" href="mailto:{{author}}"><i class="icon-info-sign"></i></a></h2>
+		        	<a class="show-solution" href="#"><div>Montrer la correction</div></a>
+
+		        	{{#solution}}
+
+		        	<div class="solution-text">{{{solution}}}</div>
+		        	{{/solution}}
+
+		        	{{^solution}}
+		        		<div class='missing'><i class='icon-ambulance'></i> Pas encore de solution rédigée dans la DB.<br><br>
+		        		
+		        		 <a class="mailto" href="mailto:edelans@gmail.com?subject=Demande de correction du N.{{number}}, {{school}}, {{chapter}}"><div><i class="icon-mail"></i>Demander la correction !</div></a>
+		        		</div>
+		        		
+		        	{{/solution}}
+	        	</div>
+	        	</div>
+	        	
+					<div class="single-exo-nav">
+						<a href="../../index.html">Index</a>
+						<a href='../../_list/list/exercix?key="{{chapter}}"'>Chapter</a>
+					</div>
+					
+					<script>
+						$(".solution-text").css("opacity",0);
+						$(".missing").hide();
+						MathJax.Hub.Queue(function () {
+						$(".solution-text").hide();
+						
+						$(".show-solution").click(function(e){
+							e.preventDefault();
+							$(".solution-text, .missing").css("opacity", 1).show();
+							$(".show-solution").hide();
+
+						});
+						});
+						
+					</script>
+	        </body>
+</html>        	           
+        	           

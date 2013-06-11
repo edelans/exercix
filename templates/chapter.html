@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ExerciX 0.4</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../../css/index.css" type="text/css">
+    <link rel="stylesheet" href="../../css/font-awesome.css" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+    <script type="text/javascript" src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </head>
+	        <body>
+	        
+	        <h1 class="title">{{category}}</h1>
+	       <h2 class="subtitle">{{chapter}}</h2>
+
+	       <div class="exos-container">
+	       	        {{#datalist}}
+
+		   	 <a href="../../_show/exo/{{id}}">
+	        	<div class="exo-item" db_id="{{id}}">
+		        	<div class="exo-item-source">
+		        	#{{number}}, {{school}}, {{#difficulty}}<i class="icon-star"></i>{{/difficulty}}
+		        	</div>
+		        	 {{{question}}}
+	        	           
+	        	</div>
+	        </a>
+	        
+	        {{/datalist}}
+	       </div>
+	        
+	        	<div class="cat-nav-container"><a class="cat-nav" href="../../index.html">Index</a><div>    
+	        	
+	        	       
+
+   </body>
+</html>

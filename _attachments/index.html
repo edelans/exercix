@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ExerciX 0.4</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" /> 
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" /> 
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone4.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-ipad3.png" />
+
+    <script src="js/jquery.js"></script>   
+    <script src="js/packery.js"></script>   
+    <script src="js/typeahead.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+       
+
+ </head>
+ <body style="zoom: 1;">
+ 
+ 
+ <script>
+ function openChapter(chapter){
+	 window.location = '_list/list/exercix?key="' + chapter + '"';
+ }
+ 
+	 var cats = [
+		["Algèbre", [
+			"Structures, Arithmétique, complexes",
+			"Polynômes",
+			"Espaces vectoriels, matrices, determinants",
+			"Réduction",
+			"Espaces prehilbertiens, espaces euclidiens"]],
+		["Analyse", [
+			"Topologie",
+			"Fonctions d'une variable réelle",
+			"Suites réelles ou complexes",
+			"Intégration sur un segment",
+			"Intégration sur un intervalle quelconque",
+			"Intégrales à paramètre",
+			"Séries numériques",
+			"Séries de fonctions",
+			"Séries entières",
+			"Séries de Fourier",
+			"Equations différentielles",
+			"Fonctions de plusieurs variables"]],
+		["Géométrie", [ 
+			"Géométrie affine et métrique",
+			"Courbes paramétrées et coniques",
+			"Géométrie différentielle plane",
+			"Surfaces et courbes dans l'espace"]]
+			];
+	 
+	 //////////////////////////////////// OPEN INDEX ///////////////////////////////////////////////////	        
+
+	 
+  function openIndex(){
+  
+  $('body').empty();
+  $('body').append('<h1>ExerciX 0.4</h1><input id="search" placeholder="Search"><div id="cats-container"></div>')
+  // Eléments de base
+	 
+	 for(var j = 0; j < cats.length; j++){
+		 $("#cats-container").append("<div class='cat-title'>" + cats[j][0] + "</div><div class='cat-items-container'></div><br>");
+		 //Ajoute les noms des catégories et crée la div des items
+		 	
+		 	for(var k = 0; k < cats[j][1].length; k++){
+			  $("#cats-container .cat-items-container:last").append("<div class='cat-item'>" + cats[j][1][k] + "</div>");
+			  // Ajoute les noms des chapitres
+			 	} 	
+	 }
+	 //Packery
+	 
+	 $('.cat-items-container').each(function(){
+		 var container = $(this)[0];
+		 var pckry = new Packery( container, {
+			 itemSelector: '.cat-item',
+			 gutter: 10
+			 });
+	 });
+	 
+	 
+	 	
+$(document).ready(function() {
+
+// Typeahead
+
+$('input').typeahead([
+  {
+    name: 'algebre',
+    local: ["Structures, Arithmétique, complexes",
+			"Polynômes",
+			"Espaces vectoriels, matrices, déterminants",
+			"Réduction",
+			"Espace préhilbertiens, espaces euclidiens",
+			"Topologie"],
+    header: '<div class="search-cat">Algèbre</div>'
+    },
+  {
+    name: 'analyse',
+    local: ["Fonctions d'une variable réelle",
+			"Suites réelles ou complexes",
+			"Intégration sur un segment",
+			"Intégration sur un intervalle quelconque",
+			"Intégrales à paramètre",
+			"Séries numériques",
+			"Séries de fonctions",
+			"Séries entières",
+			"Séries de Fourier",
+			"Equations différentielles",
+			"Fonctions de plusieurs variables"],
+    header: '<div class="search-cat">Analyse</div>'
+  },
+  {
+    name: 'geometrie',
+    local: ["Géométrie affine et métrique",
+			"Courbes paramétrées et coniques",
+			"Géométrie différentielle plane",
+			"Surfaces et courbes dans l'espace"],
+    header: '<div class="search-cat">Géométrie</div>'
+  }
+]);
+
+
+// Search Results handler
+$('input#search').keyup(function(){
+	$('.tt-suggestion').click(function(){
+		openChapter($(this).text())});
+	var chapter = $('input#search').val();
+	if (event.which == 13) {
+     	if(jQuery.inArray(chapter,cats[0][1]) + jQuery.inArray(chapter,cats[1][1]) + jQuery.inArray(chapter,cats[2][1]) > -3){
+     	openChapter(chapter);}// Pour vérifier que l'entrée est bien dans la DB.
+     	}
+   
+});
+
+
+$('.cat-item').click(function(){
+	openChapter($(this).text())
+	});
+	
+});
+
+$('body').append('<div class="refresh-container"><a class="refresh" onClick="document.location.reload(true)">Refresh</a></div>')
+	 }
+	 
+	 openIndex();
+ </script>
+ 
+ </body>
+</html>
