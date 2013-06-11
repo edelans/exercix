@@ -8,7 +8,7 @@ v1: tout open
 -------------
 - [x] rajouter enoncés pour chapitres structure... et fonction de var réelle
 - [ ] ajouter des corrigés
-- fixer la suppression des '\\' dans les environnement \begin{cases} (géométrie): c'est le meme bug que pour les matrices: il ne faut pas remplacer les '\\' par les balises br à l'interieur de l'environnement.
+- [x] fixer la suppression des '\\' dans les environnement \begin{cases} (géométrie): c'est le meme bug que pour les matrices: il ne faut pas remplacer les '\\' par les balises br à l'interieur de l'environnement.
 
 - [ ] implémenter les POST vers la db:
   - [ ] stat viewcount
