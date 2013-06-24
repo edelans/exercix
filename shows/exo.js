@@ -31,8 +31,8 @@ function cleanLatex(strOutput){
 	"number": doc.number,
 	"school": doc.school,
 	"author": doc.author,
-	"uploaddate" : doc.uploaddate
-
+	"uploaddate" : doc.uploaddate,
+	"id" : doc._id
     };
     
     return mustache.to_html(this.templates.exo, data);

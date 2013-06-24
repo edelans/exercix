@@ -6,19 +6,22 @@
     <link rel="stylesheet" href="../../css/index.css" type="text/css">
     <link rel="stylesheet" href="../../css/font-awesome.css" type="text/css"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-        <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script src="/_utils/script/jquery.js"></script>
+        <script src="/_utils/script/jquery.couch.js"></script>
+
 
     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
     <script type="text/javascript" src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </head>
 	        <body>
 	        
-	        <h1 class="title">#{{number}}, {{school}} </h1>
+	        <h1 class="title">#{{number}}, {{school}} <a href="#" id="flag"><i class="icon-flag"></i></a></h1>
 
 	        <h2 class="subtitle">{{category}}, {{chapter}}</h2>
 	        
 	        <div class="orange-stripe">
 	        {{#difficulty}}<i class="icon-star"></i>{{/difficulty}}	
+	        {{uploaddate}}
 	        
 	        {{#taglist}}
 		        	<div class="tags-container">
@@ -53,6 +56,7 @@
 	        	</div>
 	        	</div>
 	        	
+	        	
 					<div class="single-exo-nav">
 						<a href="../../index.html">Index</a>
 						<a href='../../_list/list/exercix?key="{{chapter}}"'>Chapter</a>
@@ -68,9 +72,47 @@
 							e.preventDefault();
 							$(".solution-text, .missing").css("opacity", 1).show();
 							$(".show-solution").hide();
-
 						});
 						});
+						
+	function saveDocument( document ){
+        $db.saveDoc( document, {
+            success: function( response )  {
+                console.log("Document Updated.");
+            },
+            error: function() {
+                alert( "Cannot save document" );
+            }
+        });
+        };
+    
+      $db = $.couch.db("exercix");
+      var id = "{{id}}";
+      
+window.onload=function(){ // Viewcount Update
+     $db.openDoc( id, {
+                    success: function( document ) {
+                        document.viewcount += 1;
+                        saveDocument(document);
+                     console.log("Viewcount update to : " + document.viewcount);
+                    }
+                    });
+                    };
+                    
+                    
+document.getElementById('flag').addEventListener('click',          
+	function(){ // Flag Update
+	var flagButton = this;
+     $db.openDoc( id, {
+                    success: function( document ) {
+                        document.flagcount += 1;
+                        saveDocument(document);
+                     console.log("Flagcount update to : " + document.viewcount);
+                     flagButton.style.color="gray";
+                    }
+                    });
+                    });                    
+                    
 						
 					</script>
 	        </body>

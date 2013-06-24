@@ -250,7 +250,7 @@ input#search:focus {
 .single-exo-nav a:hover {
   background: #ffac8b;
 }
-.flag {
+#flag {
   color: #581900;
   text-decoration: none;
 }
