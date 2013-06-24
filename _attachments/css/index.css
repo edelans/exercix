@@ -192,6 +192,17 @@ input#search:focus {
   text-align: center;
   font-size: 17px;
 }
+#filter {
+  text-align: center;
+  color: #581900;
+  font-size: 20px;
+  margin: 20px 0;
+}
+#filter .filter-element {
+  margin: 10px;
+  padding: 10px;
+  background: #ffeee7;
+}
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
 .question-solution-container {
   display: table;

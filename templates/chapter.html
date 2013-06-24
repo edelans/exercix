@@ -9,17 +9,20 @@
     
     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
     <script type="text/javascript" src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    
   </head>
 	        <body>
 	        
 	        <h1 class="title">{{category}}</h1>
 	       <h2 class="subtitle">{{chapter}}</h2>
 
+	       <div id="filter"></div>
 	       <div class="exos-container">
 	       	        {{#datalist}}
 
 		   	 <a href="../../_show/exo/{{id}}">
-	        	<div class="exo-item" db_id="{{id}}">
+	        	<div class="exo-item" db_id="{{id}}" db_school="{{school}}">
 		        	<div class="exo-item-source">
 		        	#{{number}}, {{school}}, {{#difficulty}}<i class="icon-star"></i>{{/difficulty}}
 		        	</div>
@@ -33,6 +36,26 @@
 	        
 	        	<div class="cat-nav-container"><a class="cat-nav" href="../../index.html">Index</a><div>    
 	        	
+	        	<script>
+		        	var dataUnfiltered = [ {{#datalist}} "{{school}}", {{/datalist}} "Toutes écoles"];
+		        	var data = [];
+		        	for(var i=0; i<dataUnfiltered.length; i++){
+		        		if(jQuery.inArray(dataUnfiltered[i], data)==-1){
+			        		data.push(dataUnfiltered[i]);
+
+		        		}
+		        	};
+		        	
+		        	for(var i=0; i<data.length; i++){
+			        	$("#filter").append("<a class='filter-element'>" + data[i] + "</a>");
+		        	};
+		        	
+		        	$(".filter-element").click(function () {
+					$(".exo-item").show();		        	
+				    $(".exo-item[db_school!='" + $(this).text() + "']").hide();
+				    if($(this).text()=="Toutes écoles"){$(".exo-item").show();}    	
+			        	});
+	        	</script>
 	        	       
 
    </body>
