@@ -16,7 +16,20 @@ v1: tout open
   - [ ] request for correction: quand on clique dessus, faire apparaitre une fenetre qui demande l'adresse mail que l'on stocke ensuite dans la db dans le champ "requestcount" qui sera donc une liste d'adresse email: [edelans@gmail.com, ...]  -> Ca permet de prévenir les personnes quand on mettra la correction.
 - [ ] mailto flag@exercix.net
 - [ ] encapsulation Kanso puis Icenium
-
+- [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
+- [ ] commit pour les filtres par ecole
+- [ ] créer des filtres par difficulté
+- [ ] corriger bug affichage étoiles
+- [ ] pour plus de clarté pour le niveau de difficulté, on peut systématiquement mettre 3 étoiles, le niveau etant donné par des étoiles pleines, et on complete par des étoiles évidées pour arriver à 3 étoiles. 
+- [ ] corriger le console.log( ... viewcount)
+- [ ] déplacer le flag à la fin de la correction des exos quand il y a une correction, remplacer l'icone du drapeau par la phrase: "Une erreur ? Une typo ? Un manque de clarté ?" ce texte doit apparaitre en grisé, quand il est cliqué, on incrémente le flagcount, et on ouvre un mailto, vers "flag@exercix.net", en objet "J'aimerais améliorer la correction de l'exercice [ref de l'exo]", et en corps de message "Expliquez nous ce qui ne va pas".
+- [ ] pour les compteurs à incrémenter (viewcount, requestforcor, et flag), au lieu d'avoir des entier, je propose de mettre en place des taleaux de timestamps: ya beaucoup plus d'info et ca permettra à terme de mesurer l'impact de la modification d'un corrigé 
+- [ ] commenter le code
+- [ ] mettre les boutons en francais:
+  - index -> "retour au sommaire"
+  - refresh -> "rafraichir"
+  - chapter -> "retour au châpitre"
+- [ ] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
 
 Features optionnelles:
 - [ ] créer un filtre par école et par difficulté, et par popularité et par date d'ajout en tete des pages d'exo
@@ -25,7 +38,7 @@ Features optionnelles:
 - [ ] sign-up et login -> open id ?
 - [ ] mathjax svg pour régler lenteur mathjax
 - [ ] gestion des exos favoris
-- [ ] créer un bouton "zen mode" ou "distraction free" : une fois activé par l'utilisateur, celui-ci ne peut plus sortir de l'application avant la fin de la durée demandée. Je sais pas si c'est faisable (ça doit etre relou pour gérer les demandes d'acces).
+- [ ] créer un bouton "zen mode" ou "distraction free" : une fois activé par l'utilisateur, si l'utilisateur veux quitter l'appli on lui envoie des alertes piochées aleatoirement (ou en fonction du temps passé sur l'appli: si le user quitte au bout de 5 min, on le trash un peu) dans un tableau de  messages marrants "ne fais pas ça, tu as à peine commencé!" "tu sais bien que tu ne devrais pas te disperser !" etc.  
 
 
 Version 2: business ready "all you can eat"
