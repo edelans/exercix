@@ -285,7 +285,7 @@ color: darken(@orange,30%);
 text-decoration: none;
 }
 
-.show-solution, .mailto{
+.show-solution, #mailto{
 width: 100%;
 text-align: center;
 display: block;
@@ -297,7 +297,29 @@ div{
 	text-align: center;}
 }
 
-.mailto div{background: lighten(@orange,10%);}
+#input-mailto{
+	font-size: 20px;
+	color: darken(@orange,20%);
+	height: 44px;
+border: 1px solid;
+padding-top: 0px;
+display: inline;
+padding-bottom: 3px;
+padding-left: 10px;
+min-width: 330px;
+&[disabled="disabled"]{
+	color: gray;
+	border: 1px solid gray;
+	background:  #eee;
+}
+}
+
+#mailto{
+	display: inline;
+    div{background: lighten(@orange,10%);}
+    &.disabled div{background: #eee; color: black !important;}
+
+}
 
 /*//////////////////////////////////////////////////  Mobile  /////////////////////////////////////////////////////////////*/
 

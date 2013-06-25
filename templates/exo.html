@@ -49,7 +49,11 @@
 		        	{{^solution}}
 		        		<div class='missing'><i class='icon-ambulance'></i> Pas encore de solution rédigée dans la DB.<br><br>
 		        		
-		        		 <a class="mailto" href="mailto:edelans@gmail.com?subject=Demande de correction du N.{{number}}, {{school}}, {{chapter}}"><div><i class="icon-mail"></i>Demander la correction !</div></a>
+		        		Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :
+		        		<input id='input-mailto' placeholder="@">
+		        		 <a id="mailto"><div><i class="icon-mail"></i>Demander la correction !</div></a>
+		        		 
+		        		 <!-- href="mailto:edelans@gmail.com?subject=Demande de correction du N.{{number}}, {{school}}, {{chapter}}" -->
 		        		</div>
 		        		
 		        	{{/solution}}
@@ -58,8 +62,8 @@
 	        	
 	        	
 					<div class="single-exo-nav">
-						<a href="../../index.html">Index</a>
-						<a href='../../_list/list/exercix?key="{{chapter}}"'>Chapter</a>
+						<a href="../../index.html">Retour au sommaire</a>
+						<a href='../../_list/list/exercix?key="{{chapter}}"'>Retour au châpitre</a>
 					</div>
 					
 					<script>
@@ -74,6 +78,7 @@
 							$(".show-solution").hide();
 						});
 						});
+						
 						
 	function saveDocument( document ){
         $db.saveDoc( document, {
@@ -93,8 +98,8 @@ window.onload=function(){ // Viewcount Update
      $db.openDoc( id, {
                     success: function( document ) {
                         document.viewcount += 1;
-                        saveDocument(document);
                      console.log("Viewcount update to : " + document.viewcount);
+                        saveDocument(document);
                     }
                     });
                     };
@@ -104,14 +109,41 @@ document.getElementById('flag').addEventListener('click',
 	function(){ // Flag Update
 	var flagButton = this;
      $db.openDoc( id, {
-                    success: function( document ) {
-                        document.flagcount += 1;
-                        saveDocument(document);
-                     console.log("Flagcount update to : " + document.viewcount);
-                     flagButton.style.color="gray";
+                   		success: function( document ) {
+	                   	document.flagcount += 1;
+                    	console.log("Flagcount update to : " + document.flagcount);
+                	    saveDocument(document);
+             	        flagButton.style.color="gray";
                     }
                     });
-                    });                    
+                    });
+                    
+                    
+    function requestSolution(){ // requestcount Update
+	var mailtoButton = document.getElementById('mailto');
+	var mail = document.getElementById('input-mailto');
+     $db.openDoc( id, {
+                    success: function( document ) {
+                    if(!document.requestcount){document.requestcount=[];}
+                    document.requestcount.push(mail.value);
+                    console.log("requestcount update to : " + document.requestcount);
+                    saveDocument(document);
+                      }
+                  });
+     $('#mailto div').text('Merci !');
+     $('#input-mailto').attr("disabled","disabled");
+     $('#mailto').addClass('disabled').unbind('click');
+
+                }
+                                
+$('#mailto').not('.disabled').click(function (){requestSolution()});
+$('input#input-mailto').keyup(function(){
+	if (event.which == 13) { // If enter key
+			requestSolution()
+     	}
+   
+});
+
                     
 						
 					</script>

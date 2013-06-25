@@ -266,21 +266,44 @@ input#search:focus {
   text-decoration: none;
 }
 .show-solution,
-.mailto {
+#mailto {
   width: 100%;
   text-align: center;
   display: block;
 }
 .show-solution div,
-.mailto div {
+#mailto div {
   display: inline-block;
   padding: 10px;
   background: #be3600;
   color: white !important;
   text-align: center;
 }
-.mailto div {
+#input-mailto {
+  font-size: 20px;
+  color: #8b2700;
+  height: 44px;
+  border: 1px solid;
+  padding-top: 0px;
+  display: inline;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  min-width: 330px;
+}
+#input-mailto[disabled="disabled"] {
+  color: gray;
+  border: 1px solid gray;
+  background: #eee;
+}
+#mailto {
+  display: inline;
+}
+#mailto div {
   background: #ff6325;
+}
+#mailto.disabled div {
+  background: #eee;
+  color: black !important;
 }
 /*//////////////////////////////////////////////////  Mobile  /////////////////////////////////////////////////////////////*/
 @media (max-width: 600px) {
