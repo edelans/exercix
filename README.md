@@ -7,25 +7,25 @@ TO DO
 v1: tout open
 -------------
 - [x] rajouter enoncés pour chapitres structure... et fonction de var réelle
-- [ ] ajouter des corrigés
+- [ ] ajouter des corrigés
 - [x] fixer la suppression des '\\' dans les environnement \begin{cases} (géométrie): c'est le meme bug que pour les matrices: il ne faut pas remplacer les '\\' par les balises br à l'interieur de l'environnement.
 
-- [ ] implémenter les POST vers la db:
+- [ ] implémenter les POST vers la db:
   - [x] stat viewcount
   - [x] stat flag
-  - [ ] request for correction: quand on clique dessus, faire apparaitre une fenetre qui demande l'adresse mail que l'on stocke ensuite dans la db dans le champ "requestcount" qui sera donc une liste d'adresse email: [edelans@gmail.com, ...]  -> Ca permet de prévenir les personnes quand on mettra la correction.
-- [ ] mailto flag@exercix.net
-- [ ] encapsulation Kanso puis Icenium
+  - [ ] request for correction: quand on clique dessus, faire apparaitre une fenetre qui demande l'adresse mail que l'on stocke ensuite dans la db dans le champ "requestcount" qui sera donc une liste d'adresse email: [edelans@gmail.com, ...]  -> Ca permet de prévenir les personnes quand on mettra la correction.
+- [ ] mailto flag@exercix.net
+- [ ] encapsulation Kanso puis Icenium
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
-- [ ] commit pour les filtres par ecole
+- [x] commit pour les filtres par ecole
 - [ ] créer des filtres par difficulté
 - [ ] corriger bug affichage étoiles
 - [ ] pour plus de clarté pour le niveau de difficulté, on peut systématiquement mettre 3 étoiles, le niveau etant donné par des étoiles pleines, et on complete par des étoiles évidées pour arriver à 3 étoiles. 
-- [ ] corriger le console.log( ... viewcount)
+- [x] corriger le console.log( ... viewcount)
 - [ ] déplacer le flag à la fin de la correction des exos quand il y a une correction, remplacer l'icone du drapeau par la phrase: "Une erreur ? Une typo ? Un manque de clarté ?" ce texte doit apparaitre en grisé, quand il est cliqué, on incrémente le flagcount, et on ouvre un mailto, vers "flag@exercix.net", en objet "J'aimerais améliorer la correction de l'exercice [ref de l'exo]", et en corps de message "Expliquez nous ce qui ne va pas".
-- [ ] pour les compteurs à incrémenter (viewcount, requestforcor, et flag), au lieu d'avoir des entier, je propose de mettre en place des taleaux de timestamps: ya beaucoup plus d'info et ca permettra à terme de mesurer l'impact de la modification d'un corrigé 
+- [ ] pour les compteurs à incrémenter (viewcount, requestforcor, et flag), au lieu d'avoir des entiers, je propose de mettre en place des taleaux de timestamps: ya beaucoup plus d'info et ca permettra à terme de mesurer l'impact de la modification d'un corrigé 
 - [ ] commenter le code
-- [ ] mettre les boutons en francais:
+- [x] mettre les boutons en francais:
   - index -> "retour au sommaire"
   - refresh -> "rafraichir"
   - chapter -> "retour au châpitre"
