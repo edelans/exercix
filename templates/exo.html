@@ -3,6 +3,16 @@
   <head>
     <title>ExerciX 0.4</title>
     <meta charset="utf-8"/>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42009424-1', 'exercix.net');
+  ga('send', 'pageview');
+
+</script>
     <link rel="stylesheet" href="../../css/index.css" type="text/css">
     <link rel="stylesheet" href="../../css/font-awesome.css" type="text/css"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
@@ -15,13 +25,13 @@
   </head>
 	        <body>
 	        
-	        <h1 class="title">#{{number}}, {{school}} <a href="#" id="flag"><i class="icon-flag"></i></a></h1>
+	        <h1 class="title">#{{number}}, {{school}} </h1>
 
 	        <h2 class="subtitle">{{category}}, {{chapter}}</h2>
 	        
 	        <div class="orange-stripe">
-	        {{#difficulty}}<i class="icon-star"></i>{{/difficulty}}	
-	        {{uploaddate}}
+	        <i class="icon-star-empty"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i>
+		     {{uploaddate}}
 	        
 	        {{#taglist}}
 		        	<div class="tags-container">
@@ -44,6 +54,7 @@
 		        	{{#solution}}
 
 		        	<div class="solution-text">{{{solution}}}</div>
+		        	<a href="mailto:edelans@gmail.com?subject=Demande de correction du N.{{number}}, {{school}}, {{chapter}}" id="flag"><i class="icon-flag"></i> </a>
 		        	{{/solution}}
 
 		        	{{^solution}}
@@ -53,7 +64,7 @@
 		        		<input id='input-mailto' placeholder="@">
 		        		 <a id="mailto"><div><i class="icon-mail"></i>Demander la correction !</div></a>
 		        		 
-		        		 <!-- href="mailto:edelans@gmail.com?subject=Demande de correction du N.{{number}}, {{school}}, {{chapter}}" -->
+		        		
 		        		</div>
 		        		
 		        	{{/solution}}
@@ -67,6 +78,7 @@
 					</div>
 					
 					<script>
+					// Show/Hide solution Script : MathJax must load with its DOM elements displayed, so we lower the opacity to 0, wait for MathJax and then hide (eg display : none)
 						$(".solution-text").css("opacity",0);
 						$(".missing").hide();
 						MathJax.Hub.Queue(function () {
@@ -90,12 +102,14 @@
             }
         });
         };
-    
+        
+    //DB connection
       $db = $.couch.db("exercix");
       var id = "{{id}}";
       
-window.onload=function(){ // Viewcount Update
-     $db.openDoc( id, {
+      // Viewcount Update
+window.onload=function(){     
+$db.openDoc( id, {
                     success: function( document ) {
                         document.viewcount += 1;
                      console.log("Viewcount update to : " + document.viewcount);
@@ -104,10 +118,11 @@ window.onload=function(){ // Viewcount Update
                     });
                     };
                     
-                    
+    // Flag Update                
+if(document.getElementById('flag')){
 document.getElementById('flag').addEventListener('click',          
-	function(){ // Flag Update
-	var flagButton = this;
+	function(){
+	 	var flagButton = this;
      $db.openDoc( id, {
                    		success: function( document ) {
 	                   	document.flagcount += 1;
@@ -116,7 +131,7 @@ document.getElementById('flag').addEventListener('click',
              	        flagButton.style.color="gray";
                     }
                     });
-                    });
+                    });};
                     
                     
     function requestSolution(){ // requestcount Update
@@ -135,7 +150,8 @@ document.getElementById('flag').addEventListener('click',
      $('#mailto').addClass('disabled').unbind('click');
 
                 }
-                                
+  
+  //Disable the form                              
 $('#mailto').not('.disabled').click(function (){requestSolution()});
 $('input#input-mailto').keyup(function(){
 	if (event.which == 13) { // If enter key
@@ -144,7 +160,8 @@ $('input#input-mailto').keyup(function(){
    
 });
 
-                    
+// Difficulty
+$('.orange-stripe i:lt(' + {{difficulty}} + ')').removeClass('icon-star-empty').addClass("icon-star");
 						
 					</script>
 	        </body>

@@ -140,6 +140,7 @@ input#search:focus{
 
 .tt-suggestion{ //La proposition (l'item)
 	padding-left : 20px;
+	font-size: 18px;
 	p{
 		&:before{content :'•'}
 		margin : 0;
@@ -209,6 +210,9 @@ input#search:focus{
 	margin: 10px;
 	padding: 10px;
 	background: lighten(@orange,48%);
+		&.active-filter{
+				background: lighten(@orange,30%);
+		}
 	}
 }
 

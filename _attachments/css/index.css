@@ -115,6 +115,7 @@ input#search:focus {
 }
 .tt-suggestion {
   padding-left: 20px;
+  font-size: 18px;
 }
 .tt-suggestion p {
   margin: 0;
@@ -202,6 +203,9 @@ input#search:focus {
   margin: 10px;
   padding: 10px;
   background: #ffeee7;
+}
+#filter .filter-element.active-filter {
+  background: #ffac8b;
 }
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
 .question-solution-container {
