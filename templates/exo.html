@@ -111,12 +111,14 @@
     //DB connection
       $db = $.couch.db("exercix");
       var id = "{{id}}";
+      var date = new Date().getTime(); // Time...
       
       // Viewcount Update
 window.onload=function(){     
 $db.openDoc( id, {
                     success: function( document ) {
-                        document.viewcount += 1;
+                    if(!Array.isArray(document.viewcount)){document.viewcount=[];}
+                    document.viewcount.push(date);
                      console.log("Viewcount update to : " + document.viewcount);
                         saveDocument(document);
                     }
@@ -130,7 +132,8 @@ document.getElementById('flag').addEventListener('click',
 	 	var flagButton = this;
      $db.openDoc( id, {
                    		success: function( document ) {
-	                   	document.flagcount += 1;
+	                   	if(!Array.isArray(document.flagcount)){document.flagcount=[];}
+	                   	document.flagcount.push(date);
                     	console.log("Flagcount update to : " + document.flagcount);
                 	    saveDocument(document);
              	        flagButton.style.color="gray";
@@ -145,8 +148,8 @@ document.getElementById('flag').addEventListener('click',
      $db.openDoc( id, {
                     success: function( document ) {
                     if(!document.requestcount){document.requestcount=[];}
-                    document.requestcount.push(mail.value);
-                    console.log("requestcount update to : " + document.requestcount);
+                    document.requestcount.push({mail : mail.value, date : date});
+                    console.log("Adding : " + mail.value + " to document.requestcount");
                     saveDocument(document);
                       }
                   });
