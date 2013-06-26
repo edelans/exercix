@@ -8,6 +8,7 @@ v1: tout open
 -------------
 - [ ] ajouter des corrigés
 
+- [ ] remplacer "Pas encore de solution rédigée dans la DB." par "La solution est en cours de rédaction!" et "Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :" par "Laissez votre adresse mail pour qu'on la traite en priorité et être averti de son arrivée !"
 - [ ] encapsulation Kanso puis Icenium
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] commenter le code
