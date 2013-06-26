@@ -27,7 +27,7 @@
 	        <h1 class="title">{{category}}</h1>
 	       <h2 class="subtitle">{{chapter}}</h2>
 
-	       <div id="filter"></div>
+	       <div id="filter-school"></div>
 	       <div class="exos-container">
 	       	        {{#datalist}}
 
@@ -58,12 +58,12 @@
 		        	};
 		        	
 		        	for(var i=0; i<data.length; i++){
-			        	$("#filter").append("<a class='filter-element'>" + data[i] + "</a>");
+			        	$("#filter-school").append("<a class='filter-school-element'>" + data[i] + "</a>");
 		        	};
-		        	$(".filter-element:last").addClass('active-filter');
+		        	$(".filter-school-element:last").addClass('active-filter');
 		        	
-		        	$(".filter-element").click(function () {
-		        	$(".filter-element").removeClass('active-filter');
+		        	$(".filter-school-element").click(function () {
+		        	$(".filter-school-element").removeClass('active-filter');
 		        	$(this).addClass('active-filter');
 					$(".exo-item").show();		        	
 				    $(".exo-item[db_school!='" + $(this).text() + "']").hide();

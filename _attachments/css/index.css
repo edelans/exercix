@@ -193,18 +193,18 @@ input#search:focus {
   text-align: center;
   font-size: 17px;
 }
-#filter {
+#filter-school {
   text-align: center;
   color: #581900;
   font-size: 20px;
   margin: 20px 0;
 }
-#filter .filter-element {
+#filter-school .filter-school-element {
   margin: 10px;
   padding: 10px;
   background: #ffeee7;
 }
-#filter .filter-element.active-filter {
+#filter-school .filter-school-element.active-filter {
   background: #ffac8b;
 }
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
@@ -266,8 +266,12 @@ input#search:focus {
   background: #ffac8b;
 }
 #flag {
-  color: #581900;
   text-decoration: none;
+  color: black !important;
+  font-size: 15px;
+  display: block;
+  margin: 20px;
+  text-align: center;
 }
 .show-solution,
 #mailto {
