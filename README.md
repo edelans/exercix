@@ -11,7 +11,6 @@ v1: tout open
 - [ ] encapsulation Kanso puis Icenium
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] créer des filtres par difficulté
-- [ ] déplacer le flag à la fin de la correction des exos quand il y a une correction, remplacer l'icone du drapeau par la phrase: "Une erreur ? Une coquclarté ?" je propose que le texte apparaisse en grisé pour que ce ça ressorte discretement par rapport à la correction, quand il est cliqué, on incrémente le flagcount, et on ouvre un mailto, vers "flag@exercille ? Un manque de ix.net", en objet "J'aimerais améliorer la correction de l'exercice [ref de l'exo]", et en corps de message "Expliquez nous ce qui ne va pas".
 - [ ] pour les compteurs à incrémenter (viewcount, requestforcor, et flag), au lieu d'avoir des entiers, je propose de mettre en place des taleaux de timestamps: ya beaucoup plus d'info et ca permettra à terme de mesurer l'impact de la modification d'un corrigé 
 - [ ] commenter le code
 - [ ] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
@@ -40,7 +39,7 @@ Features optionnelles:
 - [x] commit pour les filtres par ecole
 - [x] corriger bug affichage étoiles
 - [x] pour plus de clarté pour le niveau de difficulté, on peut systématiquement mettre 3 étoiles, le niveau etant donné par des étoiles pleines, et on complete par des étoiles évidées pour arriver à 3 étoiles. 
-
+- [x] déplacer le flag à la fin de la correction des exos quand il y a une correction, remplacer l'icone du drapeau par la phrase: "Une erreur ? Une coquclarté ?" je propose que le texte apparaisse en grisé pour que ce ça ressorte discretement par rapport à la correction, quand il est cliqué, on incrémente le flagcount, et on ouvre un mailto, vers "flag@exercille ? Un manque de ix.net", en objet "J'aimerais améliorer la correction de l'exercice [ref de l'exo]", et en corps de message "Expliquez nous ce qui ne va pas".
 
 
 Version 2: business ready "all you can eat"
