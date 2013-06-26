@@ -27,14 +27,21 @@
 	        <h1 class="title">{{category}}</h1>
 	       <h2 class="subtitle">{{chapter}}</h2>
 
-	       <div id="filter-school"></div>
+	       <div id="filter-school">
+	       </div>
+	       <div id="filter-diff">
+	       		       <a class="filter-diff-element" filter-diff="1"><i class="icon-star"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i></a>
+	       		       <a class="filter-diff-element" filter-diff="2"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-empty"></i></a>
+	       		       <a class="filter-diff-element" filter-diff="3"><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></a>
+	       		       <a class="filter-diff-element" filter-diff="0">Toutes difficultés</a>
+	       </div>
 	       <div class="exos-container">
 	       	        {{#datalist}}
 
 		   	 <a href="../../_show/exo/{{id}}">
-	        	<div class="exo-item" db_id="{{id}}" db_school="{{school}}">
+	        	<div class="exo-item" db_id="{{id}}" db_school="{{school}}" db_difficulty="{{difficulty}}">
 		        	<div class="exo-item-source">
-		        	#{{number}}, {{school}}, <span class="difficulty-container" db_difficulty="{{difficulty}}"><i class="icon-star-empty"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i></span>
+		        	#{{number}}, {{school}}, <span class="difficulty-container"><i class="icon-star-empty"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i></span>
 		        	</div>
 		        	 {{{question}}}
 	        	           
@@ -60,19 +67,32 @@
 		        	for(var i=0; i<data.length; i++){
 			        	$("#filter-school").append("<a class='filter-school-element'>" + data[i] + "</a>");
 		        	};
-		        	$(".filter-school-element:last").addClass('active-filter');
+		        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
+		        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
+		        	
 		        	
 		        	$(".filter-school-element").click(function () {
-		        	$(".filter-school-element").removeClass('active-filter');
+		        	$(".filter-school-element, .filter-diff-element").removeClass('active-filter');
+		        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
 		        	$(this).addClass('active-filter');
 					$(".exo-item").show();		        	
 				    $(".exo-item[db_school!='" + $(this).text() + "']").hide();
 				    if($(this).text()=="Toutes écoles"){$(".exo-item").show();}    	
 			        	});
+			        	
+			        
+		        	$(".filter-diff-element").click(function () {
+		        	$(".filter-diff-element, .filter-school-element").removeClass('active-filter');
+		        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
+		        	$(this).addClass('active-filter');
+					$(".exo-item").show();		        	
+				    $(".exo-item[db_difficulty!='" + $(this).attr('filter-diff') + "']").hide();
+				    if($(this).text()=="Toutes difficultés"){$(".exo-item").show();}    	
+			        	});
 			        
 			        //Difficulty	
 			        $('.difficulty-container').each(function(){			
-			        var difficulty = $(this).attr("db_difficulty");      
+			        var difficulty = $(this).parents('.exo-item').attr("db_difficulty");      
 				    $(this).children('i:lt(' + difficulty + ')').removeClass('icon-star-empty').addClass("icon-star");
 			        });
 			        	

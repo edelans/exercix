@@ -207,6 +207,20 @@ input#search:focus {
 #filter-school .filter-school-element.active-filter {
   background: #ffac8b;
 }
+#filter-diff {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin: 30px 0;
+}
+#filter-diff .filter-diff-element {
+  margin: 10px;
+  padding: 10px;
+  background: #f14400;
+}
+#filter-diff .filter-diff-element.active-filter {
+  background: #d83d00;
+}
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
 .question-solution-container {
   display: table;
