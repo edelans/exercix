@@ -25,7 +25,7 @@ Features optionnelles:
 - [ ] gestion des exos favoris
 - [ ] créer un bouton "zen mode" ou "distraction free" : une fois activé par l'utilisateur, si l'utilisateur veux quitter l'appli on lui envoie des alertes piochées aleatoirement (ou en fonction du temps passé sur l'appli: si le user quitte au bout de 5 min, on le trash un peu) dans un tableau de  messages marrants "ne fais pas ça, tu as à peine commencé!" "tu sais bien que tu ne devrais pas te disperser !" etc.  
 
-Done
+### Done
 - [x] implémenter les POST vers la db:
   - [x] stat viewcount
   - [x] stat flag
