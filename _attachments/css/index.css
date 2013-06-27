@@ -372,6 +372,14 @@ input#search:focus {
     width: 100%;
     display: inline;
   }
+  #filter-school .filter-school-element {
+    margin: 2px !important;
+    font-size: 15px;
+  }
+  #filter-diff .filter-diff-element {
+    font-size: 12px;
+    margin: 2px !important;
+  }
   .question-solution-container {
     display: block;
   }
@@ -381,16 +389,18 @@ input#search:focus {
     width: 100%;
   }
   .single-exo-nav a {
-    width: 50%;
+    width: 48%;
     margin: 0;
-  }
-  .single-exo-nav a:first-child {
-    border-right: 1px solid #581900;
+    padding: 20px;
   }
   .cat-nav,
   .refresh {
     width: 100%;
     margin: 0;
     border-top: 1px solid #581900;
+  }
+  #input-mailto {
+    min-width: 240px;
+    margin-bottom: 10px;
   }
 }

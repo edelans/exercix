@@ -69,12 +69,9 @@ h1{font-size: 60px; text-align: center; font-weight: normal;}
  
 i{font-family: LMI; font-style: normal;}
 
-.title{
-		margin-bottom: 0;
-	}
-	.subtitle{
-		margin-top: 0;
-	}
+.title{margin-bottom: 0;}
+
+.subtitle{margin-top: 0;}
 	
 
 .cat-title{
@@ -388,6 +385,14 @@ width: 100%;
 display: inline;
 	}
 }
+#filter-school  .filter-school-element{
+	margin: 2px !important;
+	font-size: 15px;}
+#filter-diff .filter-diff-element{
+	font-size: 12px;
+	margin: 2px !important;
+}
+
 
 // Single-exo
 .question-solution-container{
@@ -397,14 +402,10 @@ display: inline;
 	display: block;
 	width: 100%;
 }
-
-
 .single-exo-nav a{
-	width: 50%;
+	width: 48%;
 	margin: 0;
-	&:first-child{
-		border-right: 1px solid darken(@orange,30%);
-	}
+	padding : 20px
 }
 
 .cat-nav, .refresh{
@@ -412,5 +413,12 @@ display: inline;
 	margin: 0;
 	border-top: 1px solid darken(@orange, 30%);	
 }
+
+#input-mailto{
+	min-width: 240px;
+	margin-bottom: 10px
+}
+
+
 
 }
