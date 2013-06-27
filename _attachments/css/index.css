@@ -49,6 +49,10 @@ h2 {
   text-align: center;
   font-weight: normal;
 }
+i {
+  font-family: LMI;
+  font-style: normal;
+}
 .title {
   margin-bottom: 0;
 }
