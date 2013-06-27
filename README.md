@@ -12,6 +12,7 @@ v1: tout open
 - [ ] rajouter un script de test de l'adresse mail: quand elle n'est pas "valide", ne pas incrémenter le requestforcor, afficher une erreur et faire re-remplir.
 - [ ] pour les filtres, je propose de garder le meme code couleur pour les écoles et la difficulté: je trouve le rouge vif des etoiles un peu trop agressif
 - [ ] je propose de virer la date dans le bandeau rouge vif des exos: ça n'apporte pas grand chose à l'utilisateur (en revanche ça pourra nous servir à nous du coté administration de la banque d'exos quand on aura bcp d'exos).
+      Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
 - [ ] encapsulation Kanso puis Icenium
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] commenter le code
