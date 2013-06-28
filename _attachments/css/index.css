@@ -390,8 +390,8 @@ input#search:focus {
   }
   .single-exo-nav a {
     width: 48%;
-    margin: 0;
-    padding: 20px;
+    margin: 0 0 10px 0;
+    padding: 15px;
   }
   .cat-nav,
   .refresh {

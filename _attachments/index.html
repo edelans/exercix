@@ -3,6 +3,7 @@
   <head>
     <title>ExerciX 0.4</title>
     <meta charset="utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,10 +14,17 @@
   ga('send', 'pageview');
 
 </script>
+<script>
+ window.addEventListener("load",function() {
+   setTimeout(function(){
+    window.scrollTo(0, 0);
+    }, 0);
+ });
+</script>
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-
+<link rel="icon" type="image/png" href="apple-touch-icon-iphone.png">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png" /> 
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-ipad.png" /> 
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-iphone4.png" />
@@ -135,9 +143,14 @@ $('input').typeahead([
   }
 ]);
 
+$('input#search').click(function(){
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+$("html, body").delay(50).animate({ scrollTop: $('input#search').offset().top }, 300);
+	}});
 
 // Search Results handler
 $('input#search').keyup(function(){
+
 	$('.tt-suggestion').click(function(){
 		openChapter($(this).text())});
 	var chapter = $('input#search').val();
@@ -145,7 +158,6 @@ $('input#search').keyup(function(){
      	if(jQuery.inArray(chapter,cats[0][1]) + jQuery.inArray(chapter,cats[1][1]) + jQuery.inArray(chapter,cats[2][1]) > -3){
      	openChapter(chapter);}// Pour vérifier que l'entrée est bien dans la DB.
      	}
-   
 });
 
 
