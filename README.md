@@ -11,7 +11,6 @@ v1: tout open
 - [ ] virer le icon-info-sign à coté de "Correction" (titre de la partie corrigé).
 - [ ] remplacer "Pas encore de solution rédigée dans la DB." par "La solution est en cours de rédaction!" et "Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :" par directement le cadre de saisi d'email avec un bouton "Prévenez moi dès qu'elle est en ligne !" puis à la ligne en dessous la phrase: "Nous traitons en priorité les corrigés les plus demandés" en italique.
 - [ ] rajouter un script de test de l'adresse mail: quand elle n'est pas "valide", ne pas incrémenter le requestforcor, afficher une erreur et faire re-remplir.
-- [ ] pour les filtres, je propose de garder le meme code couleur pour les écoles et la difficulté: je trouve le rouge vif des etoiles un peu trop agressif
 - [ ] [Ed] je propose de virer la date dans le bandeau rouge vif des exos: ça n'apporte pas grand chose à l'utilisateur (en revanche ça pourra nous servir à nous du coté administration de la banque d'exos quand on aura bcp d'exos).
       [J] Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
       [Ed] tout a fait d'accord -> on garde le bandeau avec les étoiles, on vire la date. 
@@ -35,6 +34,7 @@ Features optionnelles:
 - [ ] créer un bouton "zen mode" ou "distraction free" : une fois activé par l'utilisateur, si l'utilisateur veux quitter l'appli on lui envoie des alertes piochées aleatoirement (ou en fonction du temps passé sur l'appli: si le user quitte au bout de 5 min, on le trash un peu) dans un tableau de  messages marrants "ne fais pas ça, tu as à peine commencé!" "tu sais bien que tu ne devrais pas te disperser !" etc.  
 
 ### Done
+- [x] pour les filtres, je propose de garder le meme code couleur pour les écoles et la difficulté: je trouve le rouge vif des etoiles un peu trop agressif
 - [x] implémenter les POST vers la db:
   - [x] stat viewcount
   - [x] stat flag
