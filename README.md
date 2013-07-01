@@ -19,7 +19,7 @@ v1: tout open
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] commenter le code
 - [ ] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
-
+- [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
 
 Améliorer la vitesse d'affichage:
 - [ ] C'est possible d'afficher un petit sablier tant que MathJax n'a pas fini de charger ?
