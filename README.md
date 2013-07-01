@@ -8,7 +8,7 @@ v1: tout open
 -------------
 - [ ] ajouter des corrigés
 
-
+- [ ] virer le icon-info-sign à coté de "Correction" (titre de la partie corrigé).
 - [ ] remplacer "Pas encore de solution rédigée dans la DB." par "La solution est en cours de rédaction!" et "Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :" par directement le cadre de saisi d'email avec un bouton "Prévenez moi dès qu'elle est en ligne !" puis à la ligne en dessous la phrase: "Nous traitons en priorité les corrigés les plus demandés" en italique.
 - [ ] rajouter un script de test de l'adresse mail: quand elle n'est pas "valide", ne pas incrémenter le requestforcor, afficher une erreur et faire re-remplir.
 - [ ] pour les filtres, je propose de garder le meme code couleur pour les écoles et la difficulté: je trouve le rouge vif des etoiles un peu trop agressif
