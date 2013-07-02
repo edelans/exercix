@@ -84,106 +84,103 @@
 						<a href='../../_list/list/exercix?key="{{chapter}}"'>Retour au châpitre</a>
 					</div>
 					
-					<script>
+			<script>
 					
 					
-						// To Typeset the question before the solution.
-						// Charger les maths de l'énoncé avant la correction.
-						var question = $('.question')[0];
-						var solution = $('.solution')[0];
-						MathJax.Hub.Queue(["Typeset",MathJax.Hub, question]);
-						MathJax.Hub.Queue(["Typeset",MathJax.Hub, solution]);
-						MathJax.Hub.Queue(function(){
-							$('#MathJax-Spin').remove();
-						});
+			// To Typeset the question before the solution.
+			// Charger les maths de l'énoncé avant la correction.
+			var question = $('.question')[0];
+			var solution = $('.solution')[0];
+			MathJax.Hub.Queue(["Typeset",MathJax.Hub, question]);
+			MathJax.Hub.Queue(["Typeset",MathJax.Hub, solution]);
+			MathJax.Hub.Queue(function(){
+				$('#MathJax-Spin').remove();
+			});
 						
-			// Show/Hide solution Script : MathJax must load with its DOM elements displayed, so we lower the opacity to 0, wait for MathJax and then hide (eg display : none)
+			// Show/Hide solution Script : MathJax must load with its DOM elements displayed, so we lower the opacity to 0, wait for MathJax and then hide (eg. display : none)
+			// Montrer/Cacher la solution : MathJax doit charger avec ses éléments affichés (pas en display : none). Donc on descend l'opacité à 0, on attend MathJax puis on cache avec un display : none
 			$(".solution-text").css("opacity",0);
 			$(".missing").hide();
 			MathJax.Hub.Queue(function () {
-			$(".solution-text").hide();
-			
-			$(".show-solution").click(function(e){
-				e.preventDefault();
-				$(".solution-text, .missing").css("opacity", 1).show();
-				$(".show-solution").hide();
-			});
+				$(".solution-text").hide();
+				$(".show-solution").click(function(e){
+					e.preventDefault();
+					$(".solution-text, .missing").css("opacity", 1).show();
+					$(".show-solution").hide();
+				});
 			});
 						
-						
+	// Sauvegarde le document
 	function saveDocument( document ){
         $db.saveDoc( document, {
-            success: function( response )  {
-                console.log("Document Updated.");
-            },
-            error: function() {
-                alert( "Cannot save document" );
-            }
-        });
-        };
+            success: function( response ){console.log("Document Updated.");},
+            error: function() {alert( "Cannot save document" );}
+    })};
         
     //DB connection
+    //Connexion à la base de données
       $db = $.couch.db("exercix");
       var id = "{{id}}";
-      var date = new Date().getTime(); // Time...
       
+      var date = new Date().getTime(); 
+            
       // Viewcount Update
-window.onload=function(){     
-$db.openDoc( id, {
-                    success: function( document ) {
+      // Met à jour le compteur de vues, avec un TimeStamp
+      window.onload=function(){     
+		$db.openDoc( id, {success: function( document ){
                     if(!Array.isArray(document.viewcount)){document.viewcount=[];}
                     document.viewcount.push(date);
                      console.log("Viewcount update to : " + document.viewcount);
                         saveDocument(document);
-                    }
-                    });
-                    };
+                    }})};
                     
-    // Flag Update                
-if(document.getElementById('flag')){
-document.getElementById('flag').addEventListener('click',          
-	function(){
-	 	var flagButton = this;
-     $db.openDoc( id, {
-                   		success: function( document ) {
-	                   	if(!Array.isArray(document.flagcount)){document.flagcount=[];}
-	                   	document.flagcount.push(date);
-                    	console.log("Flagcount update to : " + document.flagcount);
-                	    saveDocument(document);
-             	        flagButton.style.color="gray";
-                    }
-                    });
-                    });};
-                    
-                    
-    function requestSolution(){ // requestcount Update
-	var mailtoButton = document.getElementById('mailto');
-	var mail = document.getElementById('input-mailto');
-	if(mail.checkValidity()){     $db.openDoc( id, {
-                    success: function( document ) {
+    // Flag Update
+    // Incrémente le compteur flag.
+	if(document.getElementById('flag')){
+		document.getElementById('flag').addEventListener('click',
+			function(){
+			 	var flagButton = this;
+			 	$db.openDoc( id, {success:function( document ){
+			                   	if(!Array.isArray(document.flagcount)){document.flagcount=[];}
+			                   	document.flagcount.push(date);
+		                    	console.log("Flagcount update to : " + document.flagcount);
+		                	    saveDocument(document);
+		             	        flagButton.style.color="gray";
+		             	    }});
+	             });};
+	                    
+    // Ajoute l'e-mail entré dans la base de données
+    // Adds the mail address to the DB.
+    function requestSolution(){
+		var mailtoButton = document.getElementById('mailto');
+		var mail = document.getElementById('input-mailto');
+		if(mail.checkValidity()){
+			$db.openDoc( id, {success: function( document ) {
                     if(!document.requestcount){document.requestcount=[];}
                     document.requestcount.push({mail : mail.value, date : date});
                     console.log("Adding : " + mail.value + " to document.requestcount");
                     saveDocument(document);
-                      }
-                  });
-     $('#mailto div').text('Merci !');
-     $('#input-mailto').attr("disabled","disabled");
-     $('#mailto').addClass('disabled').unbind('click');
-
-                }}
-  
-  //Disable the form                              
-$('#mailto').not('.disabled').click(function (){requestSolution()});
-$('input#input-mailto').keyup(function(){
-	if (event.which == 13) { // If enter key
-			requestSolution()
-     	}
-   
-});
-
-// Difficulty
-$('.orange-stripe i:lt(' + {{difficulty}} + ')').removeClass('icon-star-empty').addClass("icon-star");
+                      }});
+            $('#mailto div').text('Merci !');
+            $('#input-mailto').attr("disabled","disabled");
+            $('#mailto').addClass('disabled').unbind('click');
+         }
+    };
+	  
+	  // Disable the form          
+	  // Désactive le champ de l'e-mail.
+	$('#mailto').not('.disabled').click(function (){requestSolution()});
+	
+	// Détecte la touche "entrée", pour actionner la fonction requestSolution()
+	$('input#input-mailto').keyup(function(){
+		if (event.which == 13) { // If "enter" key
+				requestSolution()
+	     	}
+	});
+	
+	// Difficulty
+	// Difficulté : Remplit les icônes d'étoiles dans la barre orange.
+	$('.orange-stripe i:lt(' + {{difficulty}} + ')').removeClass('icon-star-empty').addClass("icon-star");
 
 
 					</script>
