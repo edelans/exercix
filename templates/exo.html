@@ -20,18 +20,19 @@
         <script src="/_utils/script/jquery.couch.js"></script>
 
 
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    skipStartupTypeset: true}
+    ); </script>
     <script type="text/javascript" src="../../js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </head>
 	        <body>
-	        
+	       	<div id="MathJax-Spin"> <i class="icon-spinner icon-spin icon-2x"></i></div>
 	        <h1 class="title">#{{number}}, {{school}} </h1>
 
 	        <h2 class="subtitle">{{category}}, {{chapter}}</h2>
 	        
 	        <div class="orange-stripe">
 	        <i class="icon-star-empty"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i>
-		     {{uploaddate}}
 	        
 	        {{#taglist}}
 		        	<div class="tags-container">
@@ -48,7 +49,7 @@
 		        	{{{question}}}
 		        	</div>
 		        	<div class="solution">
-		        	<h2>Correction <a class="mail" href="mailto:{{author}}"><i class="icon-info-sign"></i></a></h2>
+		        	<h2>Correction</h2>
 		        	<a class="show-solution" href="#"><div>Montrer la correction</div></a>
 
 		        	{{#solution}}
@@ -171,7 +172,17 @@ $('input#input-mailto').keyup(function(){
 
 // Difficulty
 $('.orange-stripe i:lt(' + {{difficulty}} + ')').removeClass('icon-star-empty').addClass("icon-star");
-						
+
+						// To Typeset the question before the solution.
+						// Charger les maths de l'énoncé avant la correction.
+						var question = $('.question')[0];
+						var solution = $('.solution')[0];
+						MathJax.Hub.Queue(["Typeset",MathJax.Hub, question]);
+						MathJax.Hub.Queue(["Typeset",MathJax.Hub, solution]);
+						MathJax.Hub.Queue(function(){
+							$('#MathJax-Spin').hide();
+						});
+
 					</script>
 	        </body>
 </html>        	           

@@ -30,8 +30,6 @@ function cleanLatex(strOutput){
 	"difficulty": doc.difficulty,
 	"number": doc.number,
 	"school": doc.school,
-	"author": doc.author,
-	"uploaddate" : doc.uploaddate,
 	"id" : doc._id
     };
     

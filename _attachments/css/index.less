@@ -1,9 +1,11 @@
-/*ExerciX 0.3 CSS (using LESS), MIT Licensed, 2013*/
+/*ExerciX 0.3 CSS (using LESS), CC-BY-NC-SA Licensed, 2013*/
 
-/*///////////////////////////////////////////////  Fonts  //////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////  Fonts  //////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 @font-face {
-    font-family: 'LM';
+    font-family: 'LM'; /* LaTeX font : Latin Modern*/
     src: url('fonts/lmroman10-regular-webfont.eot');
     src: url('fonts/lmroman10-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/lmroman10-regular-webfont.woff') format('woff'),
@@ -14,7 +16,7 @@
 }
 
 @font-face {
-    font-family: 'LMC';
+    font-family: 'LMC'; /* LaTeX font with CAPS*/
     src: url('fonts/lmromancaps10-regular-webfont.eot');
     src: url('fonts/lmromancaps10-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/lmromancaps10-regular-webfont.woff') format('woff'),
@@ -27,7 +29,7 @@
 
 
 @font-face {
-    font-family: 'LMI';
+    font-family: 'LMI'; /* LaTeX font italic*/
     src: url('fonts/lmroman10-italic-webfont.eot');
     src: url('fonts/lmroman10-italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/lmroman10-italic-webfont.woff') format('woff'),
@@ -38,43 +40,42 @@
 
 }
 
-
-*{font-family : 'LM'; font-weight: normal; 
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-    // Border-box évite de compter le padding à l'extérieur.
-    }
-
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Colors /////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-@deep-purple : #96f;
-@green : #008554;
 @orange : #f14400;
-@blue : #009ef4;
-@blue2 : #1db1ff;
 
-
-/*//////////////////////////////////////////////////  Index  /////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////  General  /////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 body{margin:0;}
 
-h1{font-size: 60px; text-align: center; font-weight: normal;}
-
- h2{
-	 font-size: 40px;
-	  text-align: center; font-weight: normal;
- }
+h1,h2{text-align: center;font-weight: normal;}
+h1{font-size: 60px;}
+h2{font-size: 40px;}
  
 i{font-family: LMI; font-style: normal;}
 
 .title{margin-bottom: 0;}
-
 .subtitle{margin-top: 0;}
 	
+*{
+	font-family : 'LM';
+	font-weight: normal; 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    /* Border-box évite de compter le padding à l'extérieur.*/
+    }
 
-.cat-title{
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////  Index  /////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.cat-title{ /* Ex : Algebre ...*/
 	font-size: 40px;
 	text-align: center;
 	background: @orange;
@@ -83,18 +84,17 @@ i{font-family: LMI; font-style: normal;}
 	padding: 7px 0;	
 }
 
-
 .cat-items-container{
 	padding: 30px 10%;
 }
 
-.cat-item{
+.cat-item{ /* Le chapter, ex : Polynômes*/
 	max-width : 20%;
 	font-size: 20px;
 	margin: 5px;
 	padding: 5px;
-	border: lighten(@orange, 20%) 2px solid;
 	color: darken(@orange, 27%);
+	border: lighten(@orange, 20%) 2px solid;
 	border-radius: 10px; 
 	text-align: center;
 	&:hover{
@@ -103,11 +103,12 @@ i{font-family: LMI; font-style: normal;}
 	
 }
 
-
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Search  /////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
-input#search, .tt-hint{
+input#search, .tt-hint{ /* La barre de recherche, et la barre de suggestion située en dessous.*/
 	width: 100% ;
 	padding: 10px 20px;
 	border: 0 none;
@@ -119,12 +120,12 @@ input#search, .tt-hint{
 }
 
 input#search:focus{
-	background: rgba(255,203,148,0.36) !important; //La transparence est là pour ne pas masquer la suggestion.
+	background: rgba(255,203,148,0.36) !important; /* La transparence est là pour ne pas masquer la suggestion (.tt-hint). */
 }
 
-.twitter-typeahead{width: 100%;}
+.twitter-typeahead{width: 100%;} /*Englobe les deux input*/
 
-.tt-dropdown-menu{
+.tt-dropdown-menu{ /* Le dropdown Menu des suggestions...*/
 	background: white;
 	width: 100%;
 	padding: 20px;
@@ -132,25 +133,24 @@ input#search:focus{
 	background: lighten(@orange,50%);
 }
 
-.search-cat{ //La catégorie dans la fenêtre des résultats
+.search-cat{ /*La catégorie dans la fenêtre des résultats. Ex : Algebre*/
 	font-size: 30px;
 	color: @orange;
 }
 
-.tt-suggestion{ //La proposition (l'item)
+.tt-suggestion{ /*La proposition (l'item)*/
 	padding-left : 20px;
 	font-size: 18px;
 	p{
-		&:before{content :'•'}
 		margin : 0;
-	}
-}
+		&:before{content :'•'} /* Pour Ajouter un point avant la proposition*/
+	}}
 
-.tt-is-under-cursor{
-	color: darken(@orange, 10%);
-}
+.tt-is-under-cursor{color: darken(@orange, 10%);}
 
-/*//////////////////////////////////////////////////  Cat  /////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////  Chapter  /////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .exos-container{
 	padding: 0 15%;
@@ -230,15 +230,14 @@ input#search:focus{
 		}
 	}
 }
-
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .question-solution-container{
 	display: table;
 	font-size: 18px;
-
 }
-
 
 .question{
 width : 30%;
@@ -342,10 +341,21 @@ min-width: 330px;
 	display: inline;
     div{background: lighten(@orange,10%);}
     &.disabled div{background: #eee; color: black !important;}
-
 }
 
+#MathJax-Spin{
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+}
+
+#MathJax_Message{
+	display: none !important;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Mobile  /////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 @media (max-width : 600px){
 
@@ -405,8 +415,7 @@ display: inline;
 .single-exo-nav a{
 	width: 48%;
 	margin: 0 0 10px 0; 
-	padding : 15px;
-	
+	padding : 15px;	
 }
 
 .cat-nav, .refresh{
