@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../../css/font-awesome.css" type="text/css"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
         <script src="/_utils/script/jquery.js"></script>
-        <script src="/_utils/script/jquery.couch.js"></script>
+        <script src="/_utils/script/jquery.couch.js"></script><!---->
 
 
     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
@@ -85,18 +85,30 @@
 					</div>
 					
 					<script>
-					// Show/Hide solution Script : MathJax must load with its DOM elements displayed, so we lower the opacity to 0, wait for MathJax and then hide (eg display : none)
-						$(".solution-text").css("opacity",0);
-						$(".missing").hide();
-						MathJax.Hub.Queue(function () {
-						$(".solution-text").hide();
+					
+					
+						// To Typeset the question before the solution.
+						// Charger les maths de l'énoncé avant la correction.
+						var question = $('.question')[0];
+						var solution = $('.solution')[0];
+						MathJax.Hub.Queue(["Typeset",MathJax.Hub, question]);
+						MathJax.Hub.Queue(["Typeset",MathJax.Hub, solution]);
+						MathJax.Hub.Queue(function(){
+							$('#MathJax-Spin').remove();
+						});
 						
-						$(".show-solution").click(function(e){
-							e.preventDefault();
-							$(".solution-text, .missing").css("opacity", 1).show();
-							$(".show-solution").hide();
-						});
-						});
+			// Show/Hide solution Script : MathJax must load with its DOM elements displayed, so we lower the opacity to 0, wait for MathJax and then hide (eg display : none)
+			$(".solution-text").css("opacity",0);
+			$(".missing").hide();
+			MathJax.Hub.Queue(function () {
+			$(".solution-text").hide();
+			
+			$(".show-solution").click(function(e){
+				e.preventDefault();
+				$(".solution-text, .missing").css("opacity", 1).show();
+				$(".show-solution").hide();
+			});
+			});
 						
 						
 	function saveDocument( document ){
@@ -173,15 +185,6 @@ $('input#input-mailto').keyup(function(){
 // Difficulty
 $('.orange-stripe i:lt(' + {{difficulty}} + ')').removeClass('icon-star-empty').addClass("icon-star");
 
-						// To Typeset the question before the solution.
-						// Charger les maths de l'énoncé avant la correction.
-						var question = $('.question')[0];
-						var solution = $('.solution')[0];
-						MathJax.Hub.Queue(["Typeset",MathJax.Hub, question]);
-						MathJax.Hub.Queue(["Typeset",MathJax.Hub, solution]);
-						MathJax.Hub.Queue(function(){
-							$('#MathJax-Spin').hide();
-						});
 
 					</script>
 	        </body>

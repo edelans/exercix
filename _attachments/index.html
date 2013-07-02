@@ -14,13 +14,6 @@
   ga('send', 'pageview');
 
 </script>
-<script>
- window.addEventListener("load",function() {
-   setTimeout(function(){
-    window.scrollTo(0, 0);
-    }, 0);
- });
-</script>
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css"> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
@@ -73,8 +66,13 @@
 			"Surfaces et courbes dans l'espace"]]
 			];
 	 
-	 //////////////////////////////////// OPEN INDEX ///////////////////////////////////////////////////	        
+//////////////////////////////////// OPEN INDEX ///////////////////////////////////////////////////	        
 
+ window.addEventListener("load",function() {
+   setTimeout(function(){
+    window.scrollTo(0, 0);
+    }, 0);
+ });
 	 
   function openIndex(){
   
@@ -91,8 +89,8 @@
 			  // Ajoute les noms des chapitres
 			 	} 	
 	 }
-	 //Packery
 	 
+	 //Packery
 	 $('.cat-items-container').each(function(){
 		 var container = $(this)[0];
 		 var pckry = new Packery( container, {
@@ -106,7 +104,6 @@
 $(document).ready(function() {
 
 // Typeahead
-
 $('input').typeahead([
   {
     name: 'algebre',
@@ -143,6 +140,7 @@ $('input').typeahead([
   }
 ]);
 
+// Checks if the device is an iPhone, and scrolls to the input field if so.
 $('input#search').click(function(){
 	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
 $("html, body").delay(50).animate({ scrollTop: $('input#search').offset().top }, 300);
