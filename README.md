@@ -8,17 +8,13 @@ v1: tout open
 -------------
 - [ ] ajouter des corrigés
 
-- [ ] virer le icon-info-sign à coté de "Correction" (titre de la partie corrigé).
-- [ ] remplacer "Pas encore de solution rédigée dans la DB." par "La solution est en cours de rédaction!" et "Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :" par directement le cadre de saisi d'email avec un bouton "Prévenez moi dès qu'elle est en ligne !" puis à la ligne en dessous la phrase: "Nous traitons en priorité les corrigés les plus demandés" en italique.
-- [ ] rajouter un script de test de l'adresse mail: quand elle n'est pas "valide", ne pas incrémenter le requestforcor, afficher une erreur et faire re-remplir.
-- [ ] [Ed] je propose de virer la date dans le bandeau rouge vif des exos: ça n'apporte pas grand chose à l'utilisateur (en revanche ça pourra nous servir à nous du coté administration de la banque d'exos quand on aura bcp d'exos).
-      [J] Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
-      [Ed] tout a fait d'accord -> on garde le bandeau avec les étoiles, on vire la date. 
-- [ ] encapsulation Kanso puis Icenium
-- [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] commenter le code
 - [ ] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
+- [ ] v2 de la page de présentation
+- [ ] encapsulation Kanso puis Icenium
+- [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
+      [J] Je ne suis pas trop d'accord pour BootStrap, on va créer un design de bouton     
 
 Améliorer la vitesse d'affichage:
 - [ ] C'est possible d'afficher un petit sablier tant que MathJax n'a pas fini de charger ?
@@ -26,7 +22,6 @@ Améliorer la vitesse d'affichage:
 
 Features optionnelles:
 - [ ] créer un filtre par école et par difficulté, et par popularité et par date d'ajout en tete des pages d'exo
-- [ ] gestion des tags
 - [ ] gestion des profils utilisateurs 
 - [ ] sign-up et login -> open id ?
 - [ ] mathjax svg pour régler lenteur mathjax
@@ -52,6 +47,13 @@ Features optionnelles:
 - [x] déplacer le flag à la fin de la correction des exos quand il y a une correction, remplacer l'icone du drapeau par la phrase: "Une erreur ? Une coquclarté ?" je propose que le texte apparaisse en grisé pour que ce ça ressorte discretement par rapport à la correction, quand il est cliqué, on incrémente le flagcount, et on ouvre un mailto, vers "flag@exercille ? Un manque de ix.net", en objet "J'aimerais améliorer la correction de l'exercice [ref de l'exo]", et en corps de message "Expliquez nous ce qui ne va pas".
 - [x] pour les compteurs à incrémenter (viewcount, requestforcor, et flag), au lieu d'avoir des entiers, je propose de mettre en place des taleaux de timestamps: ya beaucoup plus d'info et ca permettra à terme de mesurer l'impact de la modification d'un corrigé 
 - [x] créer des filtres par difficulté
+- [x] virer le icon-info-sign à coté de "Correction" (titre de la partie corrigé).
+- [x] remplacer "Pas encore de solution rédigée dans la DB." par "La solution est en cours de rédaction!" et "Laissez votre adresse mail, on vous préviendra dès qu'il y a du nouveau :" par directement le cadre de saisi d'email avec un bouton "Prévenez moi dès qu'elle est en ligne !" puis à la ligne en dessous la phrase: "Nous traitons en priorité les corrigés les plus demandés" en italique.
+- [x] rajouter un script de test de l'adresse mail: quand elle n'est pas "valide", ne pas incrémenter le requestforcor, afficher une erreur et faire re-remplir.
+- [x] [Ed] je propose de virer la date dans le bandeau rouge vif des exos: ça n'apporte pas grand chose à l'utilisateur (en revanche ça pourra nous servir à nous du coté administration de la banque d'exos quand on aura bcp d'exos).
+      [J] Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
+      [Ed] tout a fait d'accord -> on garde le bandeau avec les étoiles, on vire la date. 
+- [x] gestion des tags
 
 Version 2: business ready "all you can eat"
 -------------------------------------------
