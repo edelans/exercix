@@ -18,7 +18,6 @@ v1: tout open
 
 Améliorer la vitesse d'affichage:
 - [ ] C'est possible d'afficher un petit sablier tant que MathJax n'a pas fini de charger ?
-- [ ] Charger le MathJax en deux fois: d'abord l'énoncé, puis la correction. 
 
 Features optionnelles:
 - [ ] créer un filtre par école et par difficulté, et par popularité et par date d'ajout en tete des pages d'exo
@@ -54,6 +53,7 @@ Features optionnelles:
       [J] Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
       [Ed] tout a fait d'accord -> on garde le bandeau avec les étoiles, on vire la date. 
 - [x] gestion des tags
+- [x] Charger le MathJax en deux fois: d'abord l'énoncé, puis la correction. 
 
 Version 2: business ready "all you can eat"
 -------------------------------------------
