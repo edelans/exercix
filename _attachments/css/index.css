@@ -169,6 +169,8 @@ input#search:focus {
 }
 .exos-container a {
   text-decoration: none;
+  /* Altèrne les couleurs pour les énoncés */
+
 }
 .exos-container a:nth-child(4n) .exo-item {
   background: #ff6325;
@@ -187,6 +189,8 @@ input#search:focus {
   background: #722000;
 }
 .exos-container a .exo-item {
+  /* Le bloc de l'énoncé */
+
   max-width: 100%;
   margin-bottom: 20px;
   padding: 10px;
@@ -230,33 +234,25 @@ input#search:focus {
   text-align: center;
   font-size: 17px;
 }
-#filter-school {
+#filter-school,
+#filter-diff {
   text-align: center;
   color: #581900;
   font-size: 20px;
   margin: 20px 0;
 }
-#filter-school .filter-school-element {
+#filter-school a,
+#filter-diff a {
   margin: 10px;
   padding: 10px;
   background: #ffeee7;
 }
-#filter-school .filter-school-element.active-filter {
+#filter-school a.active-filter,
+#filter-diff a.active-filter {
   background: #ffac8b;
 }
 #filter-diff {
-  text-align: center;
-  color: #581900;
-  font-size: 20px;
   margin: 30px 0;
-}
-#filter-diff .filter-diff-element {
-  margin: 10px;
-  padding: 10px;
-  background: #ffeee7;
-}
-#filter-diff .filter-diff-element.active-filter {
-  background: #ffac8b;
 }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
@@ -282,9 +278,6 @@ input#search:focus {
   text-decoration: none;
   color: inherit;
 }
-.solution .mail .icon-info-sign {
-  font-size: 25px;
-}
 .orange-stripe {
   background: #f14400;
   padding: 10px;
@@ -294,7 +287,7 @@ input#search:focus {
 .tags-container {
   display: inline-block;
 }
-.tag {
+.tags-container .tag {
   font-size: 13px;
   display: inline-block;
   margin: 2px;

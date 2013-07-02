@@ -154,26 +154,27 @@ input#search:focus{
 
 .exos-container{
 	padding: 0 15%;
-
+	
 	a{
 		text-decoration: none;
+		/* Altèrne les couleurs pour les énoncés */
 		&:nth-child(4n) .exo-item{background: lighten(@orange, 10%);}
 		&:nth-child(4n + 1) .exo-item{background: darken(@orange, 10%);}
-		&:nth-child(4n + 2) .exo-item{background: lighten(@orange, 40%);color: darken(@orange, 20%); .exo-tag{border: 1px solid darken(@orange, 20%)};}
+		&:nth-child(4n + 2) .exo-item{background: lighten(@orange, 40%); color: darken(@orange, 20%); .exo-tag{border: 1px solid darken(@orange, 20%)};}
 		&:nth-child(4n + 3) .exo-item{background: darken(@orange, 25%);}
 		
-.exo-item{
-	max-width : 100%;
-	margin-bottom: 20px;
-
-	padding: 10px;
-	color: white;
-		text-decoration: none;
-	.exo-item-source{font-size: 20px;}
-	.exo-tags-container{margin-top: 10px;}
-	.exo-tag{font-size: 13px; display: inline-block; margin: 2px; padding : 2px 4px ;border: 1px solid white; line-height: 14px;}
-	}}
+		.exo-item{ /* Le bloc de l'énoncé */
+			max-width : 100%;
+			margin-bottom: 20px;
+			padding: 10px;
+			color: white;
+			text-decoration: none;
+			.exo-item-source{font-size: 20px;}
+			.exo-tags-container{margin-top: 10px;}
+			.exo-tag{font-size: 13px; display: inline-block; margin: 2px; padding : 2px 4px ;border: 1px solid white; line-height: 14px;}
+		}
 	}
+}
 	
 	
 .cat-nav, .refresh{
@@ -200,36 +201,22 @@ input#search:focus{
 	
 }
 
-#filter-school{
+
+
+#filter-school, #filter-diff{
 	text-align: center;
 	color: darken(@orange, 30%);
 	font-size: 20px;
 	margin: 20px 0;
-	.filter-school-element{
-	margin: 10px;
-	padding: 10px;
-	background: lighten(@orange,48%);
-		&.active-filter{
-				background: lighten(@orange,30%);
-		}
+	a{
+		margin: 10px;
+		padding: 10px;
+		background: lighten(@orange,48%);
+		&.active-filter{background: lighten(@orange,30%)}
 	}
 }
 
-
-#filter-diff{
-	text-align: center;
-	color: darken(@orange, 30%);
-	font-size: 20px;
-	margin: 30px 0;
-	.filter-diff-element{
-	margin: 10px;
-	padding: 10px;
-	background: lighten(@orange,48%);
-		&.active-filter{
-				background: lighten(@orange,30%);
-		}
-	}
-}
+#filter-diff{margin: 30px 0;}
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////  Single Exo  /////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -240,25 +227,22 @@ input#search:focus{
 }
 
 .question{
-width : 30%;
-display: table-cell; 
-background: lighten(@orange, 50%);
-padding: 20px;
-color: @orange;
+	width : 30%;
+	display: table-cell; 
+	background: lighten(@orange, 50%);
+	padding: 20px;
+	color: @orange;
 }
 
 .solution{
-width: 50%;
-display: table-cell;
-padding: 20px;
-color: darken(@orange, 32%);
- a{
-	 text-decoration: none;
-	 color: inherit;
- }
- .mail .icon-info-sign {
-font-size: 25px;
-}
+	width: 50%;
+	display: table-cell;
+	padding: 20px;
+	color: darken(@orange, 32%);
+	 a{
+		 text-decoration: none;
+		 color: inherit;
+	 }
 }
 
 .orange-stripe{
@@ -270,37 +254,37 @@ font-size: 25px;
 
 .tags-container{
 	display: inline-block;
-}
 	.tag{
-	font-size: 13px;
-	display: inline-block;
-	margin: 2px;
-	padding : 2px 4px ;
-	border: 1px solid white;
-	line-height: 14px;
+		font-size: 13px;
+		display: inline-block;
+		margin: 2px;
+		padding : 2px 4px ;
+		border: 1px solid white;
+		line-height: 14px;
+	}
 }
-	
 	
 	
 .single-exo-nav{
 	text-align: center;
 	a{
-	width: 20%;
-	margin: 20px;
-	padding: 10px;
-	text-decoration: none;
-	color: darken(@orange, 30%);
-	display: inline-block;
-	background: lighten(@orange,40%);
-	text-align: center;
-	&:hover{
-		background: lighten(@orange,30%);
-	}	
-}}
+		width: 20%;
+		margin: 20px;
+		padding: 10px;
+		text-decoration: none;
+		color: darken(@orange, 30%);
+		display: inline-block;
+		background: lighten(@orange,40%);
+		text-align: center;
+		&:hover{
+			background: lighten(@orange,30%);
+		}
+	}
+}
 
 
 #flag {
-text-decoration: none;
+	text-decoration: none;
 	color: black !important;
 	font-size: 15px;
 	display: block;
@@ -309,32 +293,33 @@ text-decoration: none;
 }
 
 .show-solution, #mailto{
-width: 100%;
-text-align: center;
-display: block;
-div{
-	display: inline-block;
-	padding: 10px;
-	background: darken(@orange,10%);
-	color: white !important;
-	text-align: center;}
+	width: 100%;
+	text-align: center;
+	display: block;
+	div{
+		display: inline-block;
+		padding: 10px;
+		background: darken(@orange,10%);
+		color: white !important;
+		text-align: center;
+		}
 }
 
 #input-mailto{
 	font-size: 20px;
 	color: darken(@orange,20%);
 	height: 44px;
-border: 1px solid;
-padding-top: 0px;
-display: inline;
-padding-bottom: 3px;
-padding-left: 10px;
-min-width: 330px;
-&[disabled="disabled"]{
-	color: gray;
-	border: 1px solid gray;
-	background:  #eee;
-}
+	border: 1px solid;
+	padding-top: 0px;
+	display: inline;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	min-width: 330px;
+	&[disabled="disabled"]{
+		color: gray;
+		border: 1px solid gray;
+		background:  #eee;
+	}
 }
 
 #mailto{
@@ -381,23 +366,25 @@ padding: 20px 10px;
 .search-cat{font-size: 20px;}
 
 //Chapter
-.exo-item{max-width : 100% !important;
-width: 100%;
-position: relative !important;
-top: 0 !important;
-margin-bottom: 5px !important;
+.exo-item{
+	max-width : 100% !important;
+	width: 100%;
+	position: relative !important;
+	top: 0 !important;
+	margin-bottom: 5px !important;
 }
 .exos-container {
-padding: 0;
-height: auto !important;
+	padding: 0;
+	height: auto !important;
 	a{
-width: 100%;
-display: inline;
+		width: 100%;
+		display: inline;
 	}
 }
 #filter-school  .filter-school-element{
 	margin: 2px !important;
-	font-size: 15px;}
+	font-size: 15px;
+}
 #filter-diff .filter-diff-element{
 	font-size: 12px;
 	margin: 2px !important;
