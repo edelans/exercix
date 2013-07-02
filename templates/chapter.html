@@ -23,7 +23,8 @@
     
   </head>
 	        <body>
-	        
+	        	       	<div id="MathJax-Spin"> <i class="icon-spinner icon-spin icon-2x"></i></div>
+
 	        <h1 class="title">{{category}}</h1>
 	       <h2 class="subtitle">{{chapter}}</h2>
 
@@ -54,48 +55,53 @@
 	        	<div class="cat-nav-container"><a class="cat-nav" href="../../index.html">Retour au sommaire</a><div>    
 	        	
 	        	<script>
-	        	// Filters the chapters to avoid redundancy
-		        	var dataUnfiltered = [ {{#datalist}} "{{school}}", {{/datalist}} "Toutes écoles"];
-		        	var data = [];
-		        	for(var i=0; i<dataUnfiltered.length; i++){
-		        		if(jQuery.inArray(dataUnfiltered[i], data)==-1){
-			        		data.push(dataUnfiltered[i]);
+	      // Icône MathJax
+			MathJax.Hub.Queue(function(){
+				$('#MathJax-Spin').remove();
+			});
+    	
+    	// Filters the chapters to avoid redundancy
+        	var dataUnfiltered = [ {{#datalist}} "{{school}}", {{/datalist}} "Toutes écoles"];
+        	var data = [];
+        	for(var i=0; i<dataUnfiltered.length; i++){
+        		if(jQuery.inArray(dataUnfiltered[i], data)==-1){
+	        		data.push(dataUnfiltered[i]);
 
-		        		}
-		        	};
-		        	
-		        	for(var i=0; i<data.length; i++){
-			        	$("#filter-school").append("<a class='filter-school-element'>" + data[i] + "</a>");
-		        	};
-		        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
-		        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
-		        	
-		        	
-		        	$(".filter-school-element").click(function () {
-		        	$(".filter-school-element, .filter-diff-element").removeClass('active-filter');
-		        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
-		        	$(this).addClass('active-filter');
-					$(".exo-item").show();		        	
-				    $(".exo-item[db_school!='" + $(this).text() + "']").hide();
-				    if($(this).text()=="Toutes écoles"){$(".exo-item").show();}    	
-			        	});
-			        	
-			        
-		        	$(".filter-diff-element").click(function () {
-		        	$(".filter-diff-element, .filter-school-element").removeClass('active-filter');
-		        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
-		        	$(this).addClass('active-filter');
-					$(".exo-item").show();		        	
-				    $(".exo-item[db_difficulty!='" + $(this).attr('filter-diff') + "']").hide();
-				    if($(this).text()=="Toutes difficultés"){$(".exo-item").show();}    	
-			        	});
-			        
-			        //Difficulty	
-			        $('.difficulty-container').each(function(){			
-			        var difficulty = $(this).parents('.exo-item').attr("db_difficulty");      
-				    $(this).children('i:lt(' + difficulty + ')').removeClass('icon-star-empty').addClass("icon-star");
-			        });
-			        	
+        		}
+        	};
+        	
+        	for(var i=0; i<data.length; i++){
+	        	$("#filter-school").append("<a class='filter-school-element'>" + data[i] + "</a>");
+        	};
+        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
+        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
+        	
+        	
+        	$(".filter-school-element").click(function () {
+        	$(".filter-school-element, .filter-diff-element").removeClass('active-filter');
+        	$(".filter-diff-element:last").addClass('active-filter');//"Toutes Difficultés" preselected.
+        	$(this).addClass('active-filter');
+			$(".exo-item").show();		        	
+		    $(".exo-item[db_school!='" + $(this).text() + "']").hide();
+		    if($(this).text()=="Toutes écoles"){$(".exo-item").show();}    	
+	        	});
+	        	
+	        
+        	$(".filter-diff-element").click(function () {
+        	$(".filter-diff-element, .filter-school-element").removeClass('active-filter');
+        	$(".filter-school-element:last").addClass('active-filter');//"Toutes Ecoles" preselected.
+        	$(this).addClass('active-filter');
+			$(".exo-item").show();		        	
+		    $(".exo-item[db_difficulty!='" + $(this).attr('filter-diff') + "']").hide();
+		    if($(this).text()=="Toutes difficultés"){$(".exo-item").show();}    	
+	        	});
+	        
+	        //Difficulty	
+	        $('.difficulty-container').each(function(){			
+	        var difficulty = $(this).parents('.exo-item').attr("db_difficulty");      
+		    $(this).children('i:lt(' + difficulty + ')').removeClass('icon-star-empty').addClass("icon-star");
+	        });
+	        	
 	        	</script>
 	        	       
 
