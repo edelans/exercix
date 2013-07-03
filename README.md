@@ -1,7 +1,7 @@
 ExerciX
 =======
 
-ExerciX est une application qui propose aux étudiants de prépas scientifiques une large banque d'exercices de mathématiques avec des corrigés haut de gamme pour préparer leurs concours avec sérénité et flexibilité.
+[ExerciX](http://www.exercix.net) est une application qui propose aux étudiants de prépas scientifiques une large banque d'exercices de mathématiques avec des corrigés haut de gamme pour préparer leurs concours avec sérénité et flexibilité.
 
 ExerciX est une CouchApp, une application utilisant CouchDB, le HTLM5 et le CSS, sous licence Creative Commons CC-BY-NC-SA :
 http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
