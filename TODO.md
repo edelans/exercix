@@ -9,8 +9,6 @@ v1: tout open
 - [ ] ajouter des corrigés
 
 - [ ] commenter le code
-- [ ] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
-- [ ] v2 de la page de présentation
 - [ ] encapsulation Kanso puis Icenium
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
@@ -50,6 +48,8 @@ Features optionnelles:
       [J] Le bandeau est important pour l'esthétique de la page : il permet d'avoir un peu d'équilibre dans les couleurs. Il n'apporte pas beaucoup d'infos, mais c'est une mauvaise idée pour moi de l'enveler.
       [Ed] tout a fait d'accord -> on garde le bandeau avec les étoiles, on vire la date. 
 - [x] gestion des tags
+- [x] v2 de la page de présentation
+- [x] ajouter license CC. Je propose d'attendre encore un peu que le code et le readme soient plus propre avant de basculer sur de l'open.
 
 Améliorer la vitesse d'affichage:
 - [x] C'est possible d'afficher un petit sablier tant que MathJax n'a pas fini de charger ?
