@@ -10,6 +10,7 @@ v1: tout open
 
 - [ ] commenter le code
 - [ ] encapsulation Kanso puis Icenium
+- [ ] ajouter un bouton "afficher un indice", du meme type que le bouton "afficher la correction", s'il n'y a pas d'indice, incrémenter un compteur indicecount et afficher "désolé, il n'y a pas encore d'indice pour cet exercice". -> Ca permet de faire des stats sur les exos qui auront besoin d'un indice!
 - [ ] corriger la faute d'orthographe sur le bouton "châpitre" dans les pages de corrigés, en "chapitre": pas d'accent circonflexe.
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
