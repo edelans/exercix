@@ -10,6 +10,7 @@ v1: tout open
 
 - [ ] commenter le code
 - [ ] encapsulation Kanso puis Icenium
+- [ ] corriger la faute d'orthographe sur le bouton "châpitre" dans les pages de corrigés, en "chapitre": pas d'accent circonflexe.
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
       [J] Je ne suis pas trop d'accord pour BootStrap, on va créer un design de bouton     
