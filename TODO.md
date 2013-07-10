@@ -15,6 +15,8 @@ v1: tout open
 - [ ] pb du \textbf à corriger (rajouter une regex ?) -> cf exo #2 Polynomes
 - [ ] changer les boutons -> utiliser twitter Bootstrap ? http://twitter.github.io/bootstrap/base-css.html#buttons
       [J] Je ne suis pas trop d'accord pour BootStrap, on va créer un design de bouton     
+      [Ed] ok
+- Ajouter une regex pour les balises "\paragraph" à remplacer par une balise de titre html (h4 ?). C'est pour hierarchiser la réponse quand il y a plusieurs question dans l'enoncé. Ces balises latex seront forcément sour la forme \paragraph{int}. Ex ici: https://exercix.iriscouch.com:6984/exercix/_design/exercix/_show/exo/de5372aa9c1eb8cadcbbe406e301007a
 
 Features optionnelles:
 - [ ] créer un filtre par école et par difficulté, et par popularité et par date d'ajout en tete des pages d'exo
