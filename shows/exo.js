@@ -12,6 +12,7 @@ function cleanLatex(strOutput){
     strOutput = strOutput.replace(/\\end\{itemize\}/g, '<\/ul>');
     strOutput = strOutput.replace(/\\item\s*\[([^\]]*)\]/g, '<br>$1&nbsp;');
     strOutput = strOutput.replace(/\\item/g, '\r\n<li>');
+    strOutput = strOutput.replace(/\\paragraph{([0-9])}/g, '<p>$1. ');
     strOutput = strOutput.replace(/(\\begin{array}(?:[^\\]+|\\(?!end{array}))*\\end{array})|(\\begin{cases}(?:[^\\]+|\\(?!end{cases}))*\\end{cases})|\\\\/g, function(match) {
        if (match.length < 3)
             return "<br>" // Le regex cherche les \begin{array} \end{array}, et les \\. Il suffit alors de filter les array.
